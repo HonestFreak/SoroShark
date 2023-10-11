@@ -8,7 +8,7 @@ In today's market, a plethora of tokens and NFTs offer little to no real value, 
 
 By embracing decentralization, Soro-Shark paves the way for globalization and democratization while bypassing the often cumbersome paperwork process. This ensures that security is never compromised.
 
-![Alt text](Slide1.PNG) ![Alt text](Slide2.PNG) ![Alt text](Slide3.PNG) ![Alt text](Slide4.PNG) ![Alt text](Slide5.PNG) ![Alt text](Slide6.PNG) ![Alt text](Slide7.PNG)
+![Alt text](Slide2.PNG) ![Alt text](Slide3.PNG) ![Alt text](Slide4.PNG) ![Alt text](Slide5.PNG) ![Alt text](Slide6.PNG) ![Alt text](Slide7.PNG)
 
 ## 🦀Deployment and Usage
 ### Prerequisite
