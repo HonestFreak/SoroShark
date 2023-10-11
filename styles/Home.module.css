@@ -1,12 +1,12 @@
 .header {
   display: flex;
+  background-color: rgb(65, 89, 127);
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   padding-top: 1rem;
-  max-width: 1100px;
-  margin: auto
+  padding: 10px;
 }
 
 @media (max-width: 1150px) {

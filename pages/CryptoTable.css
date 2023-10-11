@@ -1,0 +1,73 @@
+/* CryptoTable Container */
+.crypto-table-container {
+    width: 95vw;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    /* border-radius: 8px; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    min-width: 50%;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Tokenize Button */
+  .tokenize-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
+  .viewdetail {
+    background-color: #0e9d1f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .tokenize-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Crypto Table */
+  .crypto-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .crypto-table th,
+  .crypto-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .crypto-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .crypto-table tr:hover {
+    background-color: #f5f5f5;
+  }
+  

@@ -1,14 +1,6 @@
 import React from 'react'
 import styles from './style.module.css'
 import Image from 'next/image'
-import {
-  CongratulationsSvg,
-  ErrorSvg,
-  FacebookSvg,
-  LinkedinSvg,
-  LinkSvg,
-  TwitterSvg,
-} from '../../../assets/icons'
 import { IResultSubmit } from '../form-pledge'
 
 export interface TransactionModalProps {

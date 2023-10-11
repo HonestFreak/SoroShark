@@ -8,7 +8,7 @@ import {
   useSubscription,
 } from '../../../hooks'
 import {
-  crowdfund as crowdfundContract,
+  // crowdfund as crowdfundContract,
   abundance as abundanceContract,
 } from '../../../shared/contracts'
 
@@ -27,20 +27,20 @@ const Pledge: FunctionComponent = () => {
     symbol: string
   }>()
 
-  const [crowdfund, setCrowdfund] = React.useState<{
-    deadline: Date
-    target: BigInt
-  }>()
+  // const [crowdfund, setCrowdfund] = React.useState<{
+  //   deadline: Date
+  //   target: BigInt
+  // }>()
 
   React.useEffect(() => {
     Promise.all([
-      abundanceContract.balance({ id: crowdfundContract.options.contractId }),
+      // abundanceContract.balance({ id: crowdfundContract.options.contractId }),
       abundanceContract.decimals(),
       abundanceContract.name(),
       abundanceContract.symbol(),
 
-      crowdfundContract.deadline(),
-      crowdfundContract.target(),
+      // crowdfundContract.deadline(),
+      // crowdfundContract.target(),
     ]).then(fetched => {
       setAbundance({
         balance: fetched[0],
@@ -49,31 +49,31 @@ const Pledge: FunctionComponent = () => {
         symbol: fetched[3].toString(),
       })
 
-      setCrowdfund({
-        deadline: new Date(Number(fetched[4]) * 1000),
-        target: fetched[5],
-      })
+      // setCrowdfund({
+      //   deadline: new Date(Number(fetched[4]) * 1000),
+      //   target: fetched[5],
+      // })
     })
   }, [updatedAt])
 
   const [targetReached, setTargetReached] = useState<boolean>(false)
 
-  useSubscription(
-    crowdfundContract.options.contractId,
-    'pledged_amount_changed',
-    React.useMemo(() => event => {
-      let eventTokenBalance = xdr.ScVal.fromXDR(event.value.xdr, 'base64')
-      setAbundance({ ...abundance!, balance: SorobanClient.scValToNative(eventTokenBalance) })
-    }, [abundance])
-  )
+  // useSubscription(
+  //   crowdfundContract.options.contractId,
+  //   'pledged_amount_changed',
+  //   React.useMemo(() => event => {
+  //     let eventTokenBalance = xdr.ScVal.fromXDR(event.value.xdr, 'base64')
+  //     setAbundance({ ...abundance!, balance: SorobanClient.scValToNative(eventTokenBalance) })
+  //   }, [abundance])
+  // )
 
-  useSubscription(
-    crowdfundContract.options.contractId,
-    'target_reached',
-    React.useMemo(() => () => {
-      setTargetReached(true)
-    }, [])
-  )
+  // useSubscription(
+  //   crowdfundContract.options.contractId,
+  //   'target_reached',
+  //   React.useMemo(() => () => {
+  //     setTargetReached(true)
+  //   }, [])
+  // )
 
   return (
     <Card>
