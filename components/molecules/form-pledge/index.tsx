@@ -4,7 +4,7 @@ import { TransactionModal } from '../../molecules/transaction-modal'
 import { Utils } from '../../../shared/utils'
 import styles from './style.module.css'
 import { Spacer } from '../../atoms/spacer'
-import { abundance, crowdfund } from '../../../shared/contracts'
+import { equity } from '../../../shared/contracts'
 
 export interface IFormPledgeProps {
   account: string
@@ -35,7 +35,7 @@ function MintButton({ account, symbol, onComplete, decimals }: { decimals: numbe
       title={`Mint ${displayAmount} ${symbol}`}
       onClick={async () => {
         setSubmitting(true)
-        await abundance.mint({ to: account, amount })
+        await equity.mint({ to: account, amount })
         setSubmitting(false)
         onComplete()
       }}
@@ -57,9 +57,9 @@ const FormPledge: FunctionComponent<IFormPledgeProps> = props => {
 
   React.useEffect(() => {
     Promise.all([
-      abundance.balance({ id: props.account }),
-      abundance.decimals(),
-      abundance.symbol(),
+      equity.balance({ id: props.account }),
+      equity.decimals(),
+      equity.symbol(),
     ]).then(fetched => {
       setBalance(fetched[0])
       setDecimals(fetched[1])

@@ -1,11 +1,11 @@
-// import * as Abundance from 'abundance-token'
+// import * as equity from 'equity-token'
 // import { Server } from 'soroban-client'
 // import config from './config.json'
 // const { network, rpcUrl } = config
 
-// export const abundance = new Abundance.Contract({
+// export const equity = new equity.Contract({
 //   rpcUrl,
-//   ...Abundance.networks[network as keyof typeof Abundance.networks],
+//   ...equity.networks[network as keyof typeof equity.networks],
 // })
 
 // export const crowdfund = new Crowdfund.Contract({
