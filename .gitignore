@@ -2,6 +2,8 @@
 /.soroban-example-dapp
 /.soroban
 /shared/config.json
+/.soroshark-dapp
+
 # dependencies
 /node_modules
 /.pnp

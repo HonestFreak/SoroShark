@@ -1,3 +1,5 @@
+// Read the test.rs comments before running the tests
+// This is the deployer contract that will be used to deploy the Equity contract
 #![no_std]
 
 use soroban_sdk::{contract, contractimpl, Address, BytesN, Env, Symbol, Val, Vec};
@@ -33,6 +35,8 @@ impl Deployer {
             .deployer()
             .with_address(deployer, salt)
             .deploy(wasm_hash);
+
+            
 
         // Invoke the init function with the given arguments.
         let res: Val = env.invoke_contract(&deployed_address, &init_fn, init_args);
