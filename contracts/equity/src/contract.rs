@@ -24,6 +24,7 @@ pub struct State {
     company_description: String,
 }
 const STATE: Symbol = symbol_short!("STATE");
+const COMPANYDATA: Symbol = symbol_short!("COMPANYDATA");
 
 fn check_nonnegative_amount(amount: i128) {
     if amount < 0 {
@@ -75,7 +76,7 @@ impl Token {
         company.equity_diluted = equity_diluted;
         company.total_tokens = total_tokens;
 
-        e.storage().instance().set(&name, &company);
+        e.storage().instance().set(&COMPANYDATA, &company);
         e.storage().instance().bump(INSTANCE_LIFETIME_THRESHOLD, INSTANCE_BUMP_AMOUNT);
 
         Self::mint(e.clone(), admin.clone(), total_tokens); // Minting the tokens
