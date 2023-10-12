@@ -24,7 +24,6 @@ impl Deployer {
         init_fn: Symbol,
         init_args: Vec<Val>,
     ) -> (Address, Val) {
-        // Skip authorization if deployer is the current contract.
         if deployer != env.current_contract_address() {
             deployer.require_auth();
         }

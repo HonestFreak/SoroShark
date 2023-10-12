@@ -11,11 +11,11 @@ use soroban_sdk::{
     Address, BytesN, Env, IntoVal, Val, Vec,
 };
 
-// The contract that will be deployed by the deployer contract.
+// Replace the file path with Equity contract Wasm.
 mod contract {
     soroban_sdk::contractimport!(
         file =
-            "../contract/target/wasm32-unknown-unknown/release/soroban_deployer_test_contract.wasm"
+            "<Equity Token WASM path>"
     );
 }
 
