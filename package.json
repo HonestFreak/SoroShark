@@ -12,14 +12,14 @@
     "reset": "npm run clean && npm run setup",
     "build:contracts": "./target/bin/soroban contract build",
     "bindings:crowdfund": "./target/bin/soroban contract bindings typescript --wasm ./target/wasm32-unknown-unknown/release/soroban_crowdfund_contract.wasm --id $(cat ./.soroban-example-dapp/crowdfund_id) --output-dir ./.soroban-example-dapp/crowdfund-contract --network $(cat ./.soroban-example-dapp/network) --overwrite",
-    "bindings:abundance": "./target/bin/soroban contract bindings typescript --wasm ./target/wasm32-unknown-unknown/release/abundance_token.wasm --id $(cat ./.soroban-example-dapp/abundance_token_id) --output-dir ./.soroban-example-dapp/abundance-token --network $(cat ./.soroban-example-dapp/network) --overwrite",
-    "bindings": "npm run bindings:crowdfund && npm run bindings:abundance",
+    "bindings:equity": "./target/bin/soroban contract bindings typescript --wasm ./target/wasm32-unknown-unknown/release/equity_token.wasm --id $(cat ./.soroban-example-dapp/equity_token_id) --output-dir ./.soroban-example-dapp/equity-token --network $(cat ./.soroban-example-dapp/network) --overwrite",
+    "bindings": "npm run bindings:crowdfund && npm run bindings:equity",
     "preinstall": "npm run build:contracts && npm run bindings"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "1.0.2",
     "@stellar/freighter-api": "^1.5.1",
-    "abundance-token": "file:./.soroban-example-dapp/abundance-token",
+    "equity-token": "file:./.soroban-example-dapp/equity-token",
     "axios": "^0.27.2",
     "bigint-conversion": "^2.4.1",
     "crowdfund-contract": "file:./.soroban-example-dapp/crowdfund-contract",

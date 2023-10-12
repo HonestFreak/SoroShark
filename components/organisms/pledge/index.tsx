@@ -9,7 +9,7 @@ import {
 } from '../../../hooks'
 import {
   // crowdfund as crowdfundContract,
-  abundance as abundanceContract,
+  equity as equityContract,
 } from '../../../shared/contracts'
 
 import * as SorobanClient from 'soroban-client'
@@ -20,7 +20,7 @@ const Pledge: FunctionComponent = () => {
   const [updatedAt, setUpdatedAt] = React.useState<number>(Date.now())
   const account = useAccount()
 
-  const [abundance, setAbundance] = React.useState<{
+  const [equity, setequity] = React.useState<{
     balance: BigInt
     decimals: number
     name: string
@@ -34,15 +34,15 @@ const Pledge: FunctionComponent = () => {
 
   React.useEffect(() => {
     Promise.all([
-      // abundanceContract.balance({ id: crowdfundContract.options.contractId }),
-      abundanceContract.decimals(),
-      abundanceContract.name(),
-      abundanceContract.symbol(),
+      // equityContract.balance({ id: crowdfundContract.options.contractId }),
+      equityContract.decimals(),
+      equityContract.name(),
+      equityContract.symbol(),
 
       // crowdfundContract.deadline(),
       // crowdfundContract.target(),
     ]).then(fetched => {
-      setAbundance({
+      setequity({
         balance: fetched[0],
         decimals: fetched[1],
         name: fetched[2].toString(),
@@ -63,8 +63,8 @@ const Pledge: FunctionComponent = () => {
   //   'pledged_amount_changed',
   //   React.useMemo(() => event => {
   //     let eventTokenBalance = xdr.ScVal.fromXDR(event.value.xdr, 'base64')
-  //     setAbundance({ ...abundance!, balance: SorobanClient.scValToNative(eventTokenBalance) })
-  //   }, [abundance])
+  //     setequity({ ...equity!, balance: SorobanClient.scValToNative(eventTokenBalance) })
+  //   }, [equity])
   // )
 
   // useSubscription(
@@ -77,7 +77,7 @@ const Pledge: FunctionComponent = () => {
 
   return (
     <Card>
-      {!abundance || !crowdfund ? (
+      {!equity || !crowdfund ? (
         <Loading size={64} />
       ) : (
         <>
@@ -86,14 +86,14 @@ const Pledge: FunctionComponent = () => {
           )}
           <h6>PLEDGED</h6>
           <div className={styles.pledgeAmount}>
-            {Utils.formatAmount(abundance.balance, abundance.decimals)} {abundance.symbol}
+            {Utils.formatAmount(equity.balance, equity.decimals)} {equity.symbol}
           </div>
           <span className={styles.pledgeGoal}>{`of ${Utils.formatAmount(
             crowdfund.target,
-            abundance.decimals
-          )} ${abundance.symbol} goal`}</span>
+            equity.decimals
+          )} ${equity.symbol} goal`}</span>
           <ProgressBar
-            value={Utils.percentage(abundance.balance, crowdfund.target, abundance.decimals)}
+            value={Utils.percentage(equity.balance, crowdfund.target, equity.decimals)}
           />
           <div className={styles.wrapper}>
             <div>
@@ -111,9 +111,9 @@ const Pledge: FunctionComponent = () => {
           {!Utils.isExpired(crowdfund.deadline) &&
             (account ? (
               <FormPledge
-                decimals={abundance.decimals || 7}
+                decimals={equity.decimals || 7}
                 account={account.address}
-                symbol={abundance.symbol}
+                symbol={equity.symbol}
                 updatedAt={updatedAt}
                 onPledge={() => setUpdatedAt(Date.now())}
               />
@@ -123,9 +123,9 @@ const Pledge: FunctionComponent = () => {
           {account && (
             <Deposits
               address={account.address}
-              decimals={abundance.decimals || 7}
-              name={abundance.name}
-              symbol={abundance.symbol}
+              decimals={equity.decimals || 7}
+              name={equity.name}
+              symbol={equity.symbol}
             />
           )}
         </>

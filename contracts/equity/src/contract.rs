@@ -76,7 +76,7 @@ impl Token {
         company.total_tokens = total_tokens;
 
         e.storage().instance().set(&name, &company);
-        e.storage().instance().bump(10000, 10000);
+        e.storage().instance().bump(INSTANCE_LIFETIME_THRESHOLD, INSTANCE_BUMP_AMOUNT);
 
         Self::mint(e.clone(), admin.clone(), total_tokens); // Minting the tokens
 

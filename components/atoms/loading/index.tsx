@@ -7,11 +7,6 @@ export interface SpacerProps {
 
 export function Loading({ size }: SpacerProps) {
   return (
-    <Image
-      src={LoadingSvg}
-      width={size}
-      height={size}
-      alt="loading..."
-    />
+<></>
   )
 }
